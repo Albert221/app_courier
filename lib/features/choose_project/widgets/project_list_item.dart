@@ -18,7 +18,7 @@ class ProjectListItem extends StatelessWidget {
         onTap: () {},
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
-          decoration: BoxDecoration(color: Colors.white10),
+          decoration: const BoxDecoration(color: Colors.white10),
           child: Row(
             children: [
               const Icon(Icons.folder),
