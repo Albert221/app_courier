@@ -42,4 +42,35 @@ abstract class GooglePlayLanguages {
   static const finnish = Language('fi-FI', 'Finnish');
   static const french = Language('fr-FR', 'French');
   // TODO: Rest of the langauges
+
+  static const values = [
+    afrikaans,
+    amharic,
+    arabic,
+    armenian,
+    azerbaijani,
+    basque,
+    belarusian,
+    bengali,
+    bulgarian,
+    burmese,
+    catalan,
+    chineseHongKong,
+    chineseSimplified,
+    chineseTraditional,
+    croatian,
+    czech,
+    danish,
+    dutch,
+    englishAustralia,
+    englishCanada,
+    englishIndia,
+    englishSingapore,
+    englishUnitedKingdom,
+    englishUnitedStates,
+    estonian,
+    filipino,
+    finnish,
+    french,
+  ];
 }
