@@ -54,14 +54,14 @@ abstract class GooglePlayLanguages {
   static const lithuanian = Language('lt', 'Lithuanian');
   static const malay = Language('ms', 'Malay');
   static const norwegian = Language('no', 'Norwegian');
-  static const portugueseBr = Language('pt-BR', 'Portuguese (Brazil)');
-  static const portuguesePr = Language('pt-PT', 'Portuguese (Portugal) ');
+  static const portugueseBrazil = Language('pt-BR', 'Portuguese (Brazil)');
+  static const portuguesePortugal = Language('pt-PT', 'Portuguese (Portugal) ');
   static const romanian = Language('ro', 'Romanian');
   static const russian = Language('ru', 'Russian');
   static const serbian = Language('sr', 'Serbian');
   static const slovak = Language('sk', 'Slovak');
   static const slovenian = Language('sl', 'Slovenian'); 
-  static const spanishLa = Language('es-419', 'Spanish (Latin America)');
+  static const spanishLatinAmerica = Language('es-419', 'Spanish (Latin America)');
   static const spanish = Language('es-ES', 'Spanish (Spain)');
   static const swahili = Language('sw', 'Swahili');
   static const swedish = Language('sv', 'Swedish');
@@ -112,14 +112,14 @@ abstract class GooglePlayLanguages {
     lithuanian,  
     malay,
     norwegian,  
-    portugueseBr,  
-    portuguesePr,  
+    portugueseBrazil,  
+    portuguesePortugal,  
     romanian,  
     russian,
     serbian,  
     slovak, 
     slovenian,   
-    spanishLa,  
+    spanishLatinAmerica,  
     spanish,  
     swahili,  
     swedish,  
