@@ -41,7 +41,7 @@ abstract class GooglePlayLanguages {
   static const filipino = Language('fil', 'Filipino');
   static const finnish = Language('fi-FI', 'Finnish');
   static const french = Language('fr-FR', 'French');
-  static const frenchCanadian = Language('fr-CA', 'French (Canada)');
+  static const frenchCanada = Language('fr-CA', 'French (Canada)');
   static const german = Language('de', 'German');
   static const greek = Language('el', 'Greek');
   static const hebrew = Language('he', 'Hebrew');
@@ -99,7 +99,7 @@ abstract class GooglePlayLanguages {
     filipino,
     finnish,
     french,
-    frenchCanadian,
+    frenchCanada,
     german,
     greek,
     hebrew,
