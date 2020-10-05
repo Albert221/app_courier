@@ -61,7 +61,7 @@ abstract class GooglePlayLanguages {
   static const serbian = Language('sr', 'Serbian');
   static const slovak = Language('sk', 'Slovak');
   static const slovenian = Language('sl', 'Slovenian'); 
-  static const spanish_la = Language('es-419', 'Spanish (Latin America)');
+  static const spanishLa = Language('es-419', 'Spanish (Latin America)');
   static const spanish = Language('es-ES', 'Spanish (Spain)');
   static const swahili = Language('sw', 'Swahili');
   static const swedish = Language('sv', 'Swedish');
@@ -69,9 +69,7 @@ abstract class GooglePlayLanguages {
   static const ukrainian = Language('uk', 'Ukrainian');
   static const vietnamese = Language('vi', 'Vietnamese');
   static const zulu = Language('zu', 'Zulu');
-
-  // TODO: Rest of the langauges
-
+  
   static const values = [
     afrikaans,
     amharic,
@@ -121,7 +119,7 @@ abstract class GooglePlayLanguages {
     serbian,  
     slovak, 
     slovenian,   
-    spanish_la,  
+    spanishLa,  
     spanish,  
     swahili,  
     swedish,  
