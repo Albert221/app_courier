@@ -126,6 +126,6 @@ abstract class GooglePlayLanguages {
     thai, 
     ukrainian,  
     vietnamese,  
-    zulu 
+    zulu,
   ];
 }
