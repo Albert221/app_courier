@@ -36,11 +36,40 @@ abstract class GooglePlayLanguages {
   static const englishUnitedKingdom =
       Language('en-GB', 'English (United Kingdom)');
   static const englishUnitedStates =
-      Language('en-US', 'English (United States)');
+      Language('en-US', 'English (United State)');
   static const estonian = Language('et', 'Estonian');
   static const filipino = Language('fil', 'Filipino');
   static const finnish = Language('fi-FI', 'Finnish');
   static const french = Language('fr-FR', 'French');
+  static const french_canadian = Language('fr-CA', 'French (Canada)');
+  static const german = Language('de', 'German');
+  static const greek = Language('el', 'Greek');
+  static const hebrew = Language('he', 'Hebrew');
+  static const hindi = Language('hi', 'Hindi');
+  static const icelandic = Language('is', 'Icelandic');
+  static const indonesian = Language('id', 'Indonesian');
+  static const italian = Language('it', 'Italian');
+  static const korean = Language('ko', 'Korean');
+  static const latvian = Language('lv', 'Latvian');
+  static const lithuanian = Language('lt', 'Lithuanian');
+  static const malay = Language('ms', 'Malay');
+  static const norwegian = Language('no', 'Norwegian');
+  static const portuguese_br = Language(' pt-BR', 'Portuguese (Brazil)');
+  static const portuguese_pr = Language('pt-PT', 'Portuguese (Portugal) ');
+  static const romanian = Language('ro', 'Romanian');
+  static const russian = Language('ru', 'Russian');
+  static const serbian = Language('sr', 'Serbian');
+  static const slovak = Language('sk', 'Slovak');
+  static const slovenian = Language('sl', 'Slovenian'); 
+  static const spanish_la = Language('es-419', 'Spanish (Latin America)');
+  static const spanish = Language('es-ES', 'Spanish (Spain)');
+  static const swahili = Language('sw', 'Swahili');
+  static const swedish = Language('sv', 'Swedish');
+  static const thai = Language('th', 'Thai');
+  static const ukrainian = Language('uk', 'Ukrainian');
+  static const vietnamese = Language('vietnamese', 'Vietnamese');
+  static const zulu = Language('zu', 'Zulu');
+
   // TODO: Rest of the langauges
 
   static const values = [
@@ -72,5 +101,33 @@ abstract class GooglePlayLanguages {
     filipino,
     finnish,
     french,
+    french_canadian,
+    german,
+    greek,
+    hebrew,
+    hindi,
+    icelandic, 
+    indonesian,
+    italian,
+    korean,
+    latvian, 
+    lithuanian,  
+    malay,
+    norwegian,  
+    portuguese_br,  
+    portuguese_pr,  
+    romanian,  
+    russian,
+    serbian,  
+    slovak, 
+    slovenian,   
+    spanish_la,  
+    spanish,  
+    swahili,  
+    swedish,  
+    thai, 
+    ukrainian,  
+    vietnamese,  
+    zulu 
   ];
 }
