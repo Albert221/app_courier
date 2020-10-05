@@ -1,14 +1,21 @@
+import 'package:app_courier/bloc/project_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'features/main_screen.dart';
 
 class AppCourier extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: MainScreen(),
-      debugShowCheckedModeBanner: false,
-      theme: theme,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (_) => ProjectCubit()..openProject()),
+      ],
+      child: MaterialApp(
+        home: MainScreen(),
+        debugShowCheckedModeBanner: false,
+        theme: theme,
+      ),
     );
   }
 

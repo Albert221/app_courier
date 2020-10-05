@@ -1,20 +1,25 @@
+import 'package:app_courier/bloc/project_cubit.dart';
+import 'package:app_courier/models/models.dart';
+import 'package:app_courier/widgets/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-
-import 'navigation_section.dart';
-import 'project_overview_bar.dart';
 
 class TopBar extends HookWidget {
   @override
   Widget build(BuildContext context) {
-    final currentPlatform = useState('android');
     final currentSection = useState('general');
 
     return Padding(
       padding: const EdgeInsets.all(8),
       child: Row(
         children: [
-          const ProjectOverviewBar(),
+          BlocBuilder<ProjectCubit, Project>(
+            builder: (context, project) => ProjectOverviewBar(
+              path: project.path,
+              name: project.defaultName,
+            ),
+          ),
           Expanded(
             child: SizedBox(
               height: 61,
@@ -22,22 +27,6 @@ class TopBar extends HookWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 32),
                 scrollDirection: Axis.horizontal,
                 children: [
-                  NavigationSection<String>(
-                    title: const Text('platform'),
-                    value: currentPlatform.value,
-                    onChanged: (platform) => currentPlatform.value = platform,
-                    items: [
-                      NavigationSectionItem(
-                        value: 'android',
-                        child: const Text('Android'),
-                      ),
-                      NavigationSectionItem(
-                        value: 'ios',
-                        child: const Text('iOS'),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(width: 32),
                   NavigationSection<String>(
                     title: const Text('section'),
                     value: currentSection.value,
@@ -66,22 +55,22 @@ class TopBar extends HookWidget {
                     ],
                   ),
                   const SizedBox(width: 32),
-                  NavigationSection<String>(
-                    title: const Text('changelogs'),
-                    value: currentSection.value,
-                    onChanged: (section) => currentSection.value = section,
-                    items: [
-                      NavigationSectionItem(
-                        child: const Icon(Icons.add, size: 20),
-                      ),
-                      ...List.generate(
-                        28,
-                        (index) => NavigationSectionItem(
-                          value: index.toString(),
-                          child: Text(index.toString()),
+                  BlocBuilder<ProjectCubit, Project>(
+                    builder: (context, project) => NavigationSection<String>(
+                      title: const Text('changelogs'),
+                      value: currentSection.value,
+                      onChanged: (section) => currentSection.value = section,
+                      items: [
+                        NavigationSectionItem(
+                          child: const Icon(Icons.add, size: 20),
                         ),
-                      ).reversed,
-                    ],
+                        for (final versionName in project.versionsNames)
+                          NavigationSectionItem(
+                            value: 'changelog-$versionName',
+                            child: Text(versionName),
+                          ),
+                      ],
+                    ),
                   ),
                 ],
               ),

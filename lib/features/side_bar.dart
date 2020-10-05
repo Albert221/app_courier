@@ -1,19 +1,27 @@
+import 'package:app_courier/bloc/languages_search_cubit.dart';
+import 'package:app_courier/bloc/project_cubit.dart';
+import 'package:app_courier/models/models.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
-import 'language_list_tile.dart';
+import '../widgets/language_list_tile.dart';
 
 class SideBar extends HookWidget {
   @override
   Widget build(BuildContext context) {
-    final currentLanguage = useState(0);
+    final languagesSearchCubit = useLanguagesSearchCubit(
+      context.bloc<ProjectCubit>(),
+    );
+    final currentLanguage = useState(GooglePlayLanguages.englishUnitedStates);
 
     return Column(
       children: [
-        const Padding(
-          padding: EdgeInsets.all(8),
+        Padding(
+          padding: const EdgeInsets.all(8),
           child: TextField(
-            decoration: InputDecoration(
+            onChanged: (query) => languagesSearchCubit.updateQuery(query),
+            decoration: const InputDecoration(
               border: InputBorder.none,
               contentPadding: EdgeInsets.all(16),
               isDense: true,
@@ -23,27 +31,21 @@ class SideBar extends HookWidget {
           ),
         ),
         Expanded(
-          child: ListView(
-            children: [
-              LanguageListTile(
-                language: const Text('English (United States)'),
-                code: const Text('en_US'),
-                selected: currentLanguage.value == 0,
-                onTap: () => currentLanguage.value = 0,
-              ),
-              LanguageListTile(
-                language: const Text('Macedonian'),
-                code: const Text('mk_MK'),
-                selected: currentLanguage.value == 1,
-                onTap: () => currentLanguage.value = 1,
-              ),
-              LanguageListTile(
-                language: const Text('Polish'),
-                code: const Text('pl_PL'),
-                selected: currentLanguage.value == 2,
-                onTap: () => currentLanguage.value = 2,
-              ),
-            ],
+          child: BlocBuilder<LanguagesSearchCubit, LanguagesSearchState>(
+            cubit: languagesSearchCubit,
+            builder: (context, searchState) => ListView.builder(
+              itemCount: searchState.languages.length,
+              itemBuilder: (context, i) {
+                final language = searchState.languages[i];
+
+                return LanguageListTile(
+                  language: Text(language.name),
+                  code: Text(language.code),
+                  selected: currentLanguage.value == language,
+                  onTap: () => currentLanguage.value = language,
+                );
+              },
+            ),
           ),
         ),
         Divider(
@@ -78,4 +80,11 @@ class SideBar extends HookWidget {
       ],
     );
   }
+}
+
+LanguagesSearchCubit useLanguagesSearchCubit(ProjectCubit projectCubit) {
+  final cubit = useMemoized(() => LanguagesSearchCubit(projectCubit));
+  useEffect(() => cubit.close, [cubit]);
+
+  return cubit;
 }

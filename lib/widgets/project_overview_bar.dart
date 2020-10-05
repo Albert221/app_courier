@@ -1,7 +1,16 @@
 import 'package:flutter/material.dart';
 
 class ProjectOverviewBar extends StatelessWidget {
-  const ProjectOverviewBar({Key key}) : super(key: key);
+  const ProjectOverviewBar({
+    Key key,
+    @required this.path,
+    this.name,
+    this.onTap,
+  }) : super(key: key);
+
+  final String path;
+  final String name;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +19,7 @@ class ProjectOverviewBar extends StatelessWidget {
       child: Material(
         color: Colors.white10,
         child: InkWell(
-          onTap: () {},
+          onTap: onTap,
           child: Padding(
             padding: const EdgeInsets.symmetric(
               horizontal: 16,
@@ -21,13 +30,13 @@ class ProjectOverviewBar extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
-                      'Fast Shopping',
-                      style: TextStyle(fontSize: 16),
+                    Text(
+                      name ?? '',
+                      style: const TextStyle(fontSize: 16),
                     ),
                     const SizedBox(height: 4),
                     Text(
-                      'C:/AndroidStudioProjects/FastShopping',
+                      path,
                       style: TextStyle(
                         color: Theme.of(context).colorScheme.onBackground,
                         fontSize: 12,

@@ -17,7 +17,8 @@ class LanguageListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: selected ? Colors.white10 : Colors.transparent,
+      color:
+          selected ? Theme.of(context).colorScheme.surface : Colors.transparent,
       child: InkWell(
         onTap: onTap,
         child: Padding(
@@ -33,12 +34,19 @@ class LanguageListTile extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: 16),
-              DefaultTextStyle.merge(
-                style: TextStyle(
-                  fontSize: 12,
-                  color: Theme.of(context).colorScheme.onBackground,
+              Container(
+                padding: const EdgeInsets.symmetric(vertical: 1, horizontal: 4),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(4),
+                  color: Theme.of(context).colorScheme.background,
                 ),
-                child: code,
+                child: DefaultTextStyle.merge(
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: Theme.of(context).colorScheme.onBackground,
+                  ),
+                  child: code,
+                ),
               ),
             ],
           ),
