@@ -41,58 +41,56 @@ abstract class GooglePlayLanguages {
   static const filipino = Language('fil', 'Filipino');
   static const finnish = Language('fi-FI', 'Finnish');
   static const french = Language('fr-FR', 'French');
-  static const frenchCanada = Language('fr-CA', 'French (Canada)');
-  static const galician = Language('gl-ES', 'Galician');
-  static const georgian = Language('ka-GE', 'Georgian');
+  static const frenchCanadian = Language('fr-CA', 'French (Canada)');
+  static const galician = Language('gl-ES', 'Galician'); 
+  static const georgian = Language('ka-GE', 'Georgian'); 
   static const german = Language('de-DE', 'German');
   static const greek = Language('el-GR', 'Greek');
   static const hebrew = Language('iw-IL', 'Hebrew');
   static const hindi = Language('hi-IN', 'Hindi');
-  static const hungarian = Language('hu-HU', 'Hungarian');
+  static const hungarian = Language('hu-HU', 'Hungarian'); 
   static const icelandic = Language('is-IS', 'Icelandic');
   static const indonesian = Language('id', 'Indonesian');
   static const italian = Language('it-IT', 'Italian');
-  static const japanese = Language('ja-JP', 'Japanese');
-  static const kannada = Language('kn-IN', 'Kannada');
-  static const khmer = Language('km-KH', 'Khmer');
-  static const koreanSouthKorea = Language('ko-KR', 'Korean (South Korea)');
-  static const kyrgyz = Language('ky-KG', 'Kyrgyz');
-  static const lao = Language('lo-LA', 'Lao');
-  static const latvian = Language('lv', 'Latvian');
+  static const japanese = Language('ja-JP', 'Japanese'); 
+  static const kannada = Language('kn-IN', 'Kannada'); 
+  static const khmer = Language('km-KH', 'Khmer');   
+  static const korean = Language('ko-KR', 'Korean (South Korea)') 
+  static const kyrgyz = Language('ky-KG', 'Kyrgyz'); 
+  static const lao = Language('lo-LA', 'Lao'); 
+  static const latvian = Language('lv', 'Latvian');   
   static const lithuanian = Language('lt', 'Lithuanian');
-  static const macedonian = Language('mk-MK', 'Macedonian');
+  static const macedonian = Language('mk-MK', 'Macedonian'); 
   static const malay = Language('ms', 'Malay');
-  static const malayalam = Language('ml-IN', 'Malayalam');
-  static const marathi = Language('mr-IN', 'Marathi');
-  static const mongolian = Language('mn-MN', 'Mongolian');
-  static const nepali = Language('ne-NP', 'Nepali');
+  static const malayalam = Language('ml-IN', 'malayalam'); 
+  static const marathi = Language('mr-IN', 'Marathi'); 
+  static const mongolian = Language('mn-MN', 'Mongolian'); 
+  static const nepali = Language('ne-NP', 'Nepali'); 
   static const norwegian = Language('no-NO', 'Norwegian');
-  static const persian = Language('fa', 'Persian');
-  static const polish = Language('pl-PL', 'Polish');
+  static const persian = Language('fa', 'Persian'); 
+  static const polish = Language('pl-PL', 'Polish'); 
   static const portugueseBrazil = Language('pt-BR', 'Portuguese (Brazil)');
   static const portuguesePortugal = Language('pt-PT', 'Portuguese (Portugal)');
   static const romanian = Language('ro', 'Romanian');
-  static const romansh = Language('rm', 'Romansh');
+  static const romansh = Language('rm', 'Romansh'); 
   static const russian = Language('ru-RU', 'Russian');
   static const serbian = Language('sr', 'Serbian');
-  static const sinhala = Language('si-LH', 'Sinhala');
+  static const sinhala = Language('si-LK', 'Sinhala'); 
   static const slovak = Language('sk', 'Slovak');
-  static const slovenian = Language('sl', 'Slovenian');
-  static const spanishLatinAmerica =
-      Language('es-419', 'Spanish (Latin America)');
-  static const spanishSpain = Language('es-ES', 'Spanish (Spain)');
-  static const spanishUnitedStates =
-      Language('es-US', 'Spanish (United States)');
+  static const slovenian = Language('sl', 'Slovenian'); 
+  static const spanishLatinAmerica = Language('es-419', 'Spanish (Latin America)');
+  static const spanish = Language('es-ES', 'Spanish (Spain)');
+  static const spanishUnitedStates = Language('es-US', 'Spanish (United States)'); 
   static const swahili = Language('sw', 'Swahili');
-  static const swedish = Language('sv-SE', 'Swedish');
-  static const tamil = Language('ta-IN', 'Tamil');
-  static const telugu = Language('te-IN', 'Telugu');
+  static const swedish = Language('sv', 'Swedish');
+  static const tamil = Language('ta-IN', 'Tamil'); 
+  static const telugu = Language('te-IN', 'Telugu'); 
   static const thai = Language('th', 'Thai');
-  static const turkish = Language('tr-TR', 'Turkish');
+  static const turkish = Language('tr-TR', 'Turkish'); 
   static const ukrainian = Language('uk', 'Ukrainian');
   static const vietnamese = Language('vi', 'Vietnamese');
   static const zulu = Language('zu', 'Zulu');
-
+  
   static const values = [
     afrikaans,
     amharic,
@@ -122,7 +120,7 @@ abstract class GooglePlayLanguages {
     filipino,
     finnish,
     french,
-    frenchCanada,
+    frenchCanadian,
     galician,
     georgian,
     german,
@@ -130,46 +128,46 @@ abstract class GooglePlayLanguages {
     hebrew,
     hindi,
     hungarian,
-    icelandic,
+    icelandic, 
     indonesian,
     italian,
     japanese,
     kannada,
     khmer,
-    koreanSouthKorea,
+    korean,
     kyrgyz,
     lao,
-    latvian,
-    lithuanian,
-    macedonian,
+    latvian, 
+    lithuanian, 
+    macedonian, 
     malay,
     malayalam,
     marathi,
     mongolian,
     nepali,
-    norwegian,
+    norwegian,  
     persian,
     polish,
-    portugueseBrazil,
-    portuguesePortugal,
-    romanian,
+    portugueseBrazil,  
+    portuguesePortugal,  
+    romanian,  
     romansh,
     russian,
-    serbian,
+    serbian,  
     sinhala,
-    slovak,
-    slovenian,
-    spanishLatinAmerica,
-    spanishSpain,
-    spanishUnitedStates,
-    swahili,
-    swedish,
+    slovak, 
+    slovenian,   
+    spanishLatinAmerica,  
+    spanish,  
+    spanishUnitedStates, 
+    swahili,  
+    swedish,  
     tamil,
     telugu,
-    thai,
+    thai, 
     turkish,
-    ukrainian,
-    vietnamese,
+    ukrainian,  
+    vietnamese,  
     zulu,
   ];
 }
