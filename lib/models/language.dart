@@ -67,7 +67,7 @@ abstract class GooglePlayLanguages {
   static const swedish = Language('sv', 'Swedish');
   static const thai = Language('th', 'Thai');
   static const ukrainian = Language('uk', 'Ukrainian');
-  static const vietnamese = Language('vietnamese', 'Vietnamese');
+  static const vietnamese = Language('vi', 'Vietnamese');
   static const zulu = Language('zu', 'Zulu');
 
   // TODO: Rest of the langauges
