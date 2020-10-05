@@ -36,7 +36,7 @@ abstract class GooglePlayLanguages {
   static const englishUnitedKingdom =
       Language('en-GB', 'English (United Kingdom)');
   static const englishUnitedStates =
-      Language('en-US', 'English (United State)');
+      Language('en-US', 'English (United States)');
   static const estonian = Language('et', 'Estonian');
   static const filipino = Language('fil', 'Filipino');
   static const finnish = Language('fi-FI', 'Finnish');
