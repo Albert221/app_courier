@@ -16,7 +16,7 @@ class _$ProjectTearOff {
 // ignore: unused_element
   _Project call(
       {@required String path,
-      @required Map<Language, Metadata> translations,
+      @required List<Metadata> translations,
       String defaultName}) {
     return _Project(
       path: path,
@@ -34,7 +34,7 @@ const $Project = _$ProjectTearOff();
 mixin _$Project {
   /// Path to the project on disk.
   String get path;
-  Map<Language, Metadata> get translations;
+  List<Metadata> get translations;
 
   /// Project name in user's preferred language.
   String get defaultName;
@@ -46,8 +46,7 @@ mixin _$Project {
 abstract class $ProjectCopyWith<$Res> {
   factory $ProjectCopyWith(Project value, $Res Function(Project) then) =
       _$ProjectCopyWithImpl<$Res>;
-  $Res call(
-      {String path, Map<Language, Metadata> translations, String defaultName});
+  $Res call({String path, List<Metadata> translations, String defaultName});
 }
 
 /// @nodoc
@@ -68,7 +67,7 @@ class _$ProjectCopyWithImpl<$Res> implements $ProjectCopyWith<$Res> {
       path: path == freezed ? _value.path : path as String,
       translations: translations == freezed
           ? _value.translations
-          : translations as Map<Language, Metadata>,
+          : translations as List<Metadata>,
       defaultName:
           defaultName == freezed ? _value.defaultName : defaultName as String,
     ));
@@ -80,8 +79,7 @@ abstract class _$ProjectCopyWith<$Res> implements $ProjectCopyWith<$Res> {
   factory _$ProjectCopyWith(_Project value, $Res Function(_Project) then) =
       __$ProjectCopyWithImpl<$Res>;
   @override
-  $Res call(
-      {String path, Map<Language, Metadata> translations, String defaultName});
+  $Res call({String path, List<Metadata> translations, String defaultName});
 }
 
 /// @nodoc
@@ -103,7 +101,7 @@ class __$ProjectCopyWithImpl<$Res> extends _$ProjectCopyWithImpl<$Res>
       path: path == freezed ? _value.path : path as String,
       translations: translations == freezed
           ? _value.translations
-          : translations as Map<Language, Metadata>,
+          : translations as List<Metadata>,
       defaultName:
           defaultName == freezed ? _value.defaultName : defaultName as String,
     ));
@@ -122,11 +120,24 @@ class _$_Project implements _Project {
   /// Path to the project on disk.
   final String path;
   @override
-  final Map<Language, Metadata> translations;
+  final List<Metadata> translations;
   @override
 
   /// Project name in user's preferred language.
   final String defaultName;
+
+  bool _didlanguages = false;
+  List<Language> _languages;
+
+  @override
+  List<Language> get languages {
+    if (_didlanguages == false) {
+      _didlanguages = true;
+      _languages =
+          translations.map((translation) => translation.language).toList();
+    }
+    return _languages;
+  }
 
   bool _didversionsNames = false;
   List<String> _versionsNames;
@@ -135,7 +146,7 @@ class _$_Project implements _Project {
   List<String> get versionsNames {
     if (_didversionsNames == false) {
       _didversionsNames = true;
-      _versionsNames = translations.values
+      _versionsNames = translations
           .expand((translation) => translation.changelogs.keys)
           .toSet()
           .toList();
@@ -145,7 +156,7 @@ class _$_Project implements _Project {
 
   @override
   String toString() {
-    return 'Project(path: $path, translations: $translations, defaultName: $defaultName, versionsNames: $versionsNames)';
+    return 'Project(path: $path, translations: $translations, defaultName: $defaultName, languages: $languages, versionsNames: $versionsNames)';
   }
 
   @override
@@ -177,7 +188,7 @@ class _$_Project implements _Project {
 abstract class _Project implements Project {
   factory _Project(
       {@required String path,
-      @required Map<Language, Metadata> translations,
+      @required List<Metadata> translations,
       String defaultName}) = _$_Project;
 
   @override
@@ -185,7 +196,7 @@ abstract class _Project implements Project {
   /// Path to the project on disk.
   String get path;
   @override
-  Map<Language, Metadata> get translations;
+  List<Metadata> get translations;
   @override
 
   /// Project name in user's preferred language.
@@ -200,11 +211,13 @@ class _$MetadataTearOff {
 
 // ignore: unused_element
   _Metadata call(
-      {@required String appName,
+      {@required Language language,
+      @required String appName,
       @required String shortDescription,
       @required String fullDescription,
       @required Map<String, String> changelogs}) {
     return _Metadata(
+      language: language,
       appName: appName,
       shortDescription: shortDescription,
       fullDescription: fullDescription,
@@ -219,6 +232,8 @@ const $Metadata = _$MetadataTearOff();
 
 /// @nodoc
 mixin _$Metadata {
+  Language get language;
+
   /// GP: 50 characters max
   String get appName;
 
@@ -239,10 +254,13 @@ abstract class $MetadataCopyWith<$Res> {
   factory $MetadataCopyWith(Metadata value, $Res Function(Metadata) then) =
       _$MetadataCopyWithImpl<$Res>;
   $Res call(
-      {String appName,
+      {Language language,
+      String appName,
       String shortDescription,
       String fullDescription,
       Map<String, String> changelogs});
+
+  $LanguageCopyWith<$Res> get language;
 }
 
 /// @nodoc
@@ -255,12 +273,14 @@ class _$MetadataCopyWithImpl<$Res> implements $MetadataCopyWith<$Res> {
 
   @override
   $Res call({
+    Object language = freezed,
     Object appName = freezed,
     Object shortDescription = freezed,
     Object fullDescription = freezed,
     Object changelogs = freezed,
   }) {
     return _then(_value.copyWith(
+      language: language == freezed ? _value.language : language as Language,
       appName: appName == freezed ? _value.appName : appName as String,
       shortDescription: shortDescription == freezed
           ? _value.shortDescription
@@ -273,6 +293,16 @@ class _$MetadataCopyWithImpl<$Res> implements $MetadataCopyWith<$Res> {
           : changelogs as Map<String, String>,
     ));
   }
+
+  @override
+  $LanguageCopyWith<$Res> get language {
+    if (_value.language == null) {
+      return null;
+    }
+    return $LanguageCopyWith<$Res>(_value.language, (value) {
+      return _then(_value.copyWith(language: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -281,10 +311,14 @@ abstract class _$MetadataCopyWith<$Res> implements $MetadataCopyWith<$Res> {
       __$MetadataCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String appName,
+      {Language language,
+      String appName,
       String shortDescription,
       String fullDescription,
       Map<String, String> changelogs});
+
+  @override
+  $LanguageCopyWith<$Res> get language;
 }
 
 /// @nodoc
@@ -298,12 +332,14 @@ class __$MetadataCopyWithImpl<$Res> extends _$MetadataCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object language = freezed,
     Object appName = freezed,
     Object shortDescription = freezed,
     Object fullDescription = freezed,
     Object changelogs = freezed,
   }) {
     return _then(_Metadata(
+      language: language == freezed ? _value.language : language as Language,
       appName: appName == freezed ? _value.appName : appName as String,
       shortDescription: shortDescription == freezed
           ? _value.shortDescription
@@ -321,15 +357,19 @@ class __$MetadataCopyWithImpl<$Res> extends _$MetadataCopyWithImpl<$Res>
 /// @nodoc
 class _$_Metadata implements _Metadata {
   const _$_Metadata(
-      {@required this.appName,
+      {@required this.language,
+      @required this.appName,
       @required this.shortDescription,
       @required this.fullDescription,
       @required this.changelogs})
-      : assert(appName != null),
+      : assert(language != null),
+        assert(appName != null),
         assert(shortDescription != null),
         assert(fullDescription != null),
         assert(changelogs != null);
 
+  @override
+  final Language language;
   @override
 
   /// GP: 50 characters max
@@ -349,13 +389,16 @@ class _$_Metadata implements _Metadata {
 
   @override
   String toString() {
-    return 'Metadata(appName: $appName, shortDescription: $shortDescription, fullDescription: $fullDescription, changelogs: $changelogs)';
+    return 'Metadata(language: $language, appName: $appName, shortDescription: $shortDescription, fullDescription: $fullDescription, changelogs: $changelogs)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _Metadata &&
+            (identical(other.language, language) ||
+                const DeepCollectionEquality()
+                    .equals(other.language, language)) &&
             (identical(other.appName, appName) ||
                 const DeepCollectionEquality()
                     .equals(other.appName, appName)) &&
@@ -373,6 +416,7 @@ class _$_Metadata implements _Metadata {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(language) ^
       const DeepCollectionEquality().hash(appName) ^
       const DeepCollectionEquality().hash(shortDescription) ^
       const DeepCollectionEquality().hash(fullDescription) ^
@@ -385,11 +429,14 @@ class _$_Metadata implements _Metadata {
 
 abstract class _Metadata implements Metadata {
   const factory _Metadata(
-      {@required String appName,
+      {@required Language language,
+      @required String appName,
       @required String shortDescription,
       @required String fullDescription,
       @required Map<String, String> changelogs}) = _$_Metadata;
 
+  @override
+  Language get language;
   @override
 
   /// GP: 50 characters max

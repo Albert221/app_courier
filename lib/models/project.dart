@@ -8,14 +8,18 @@ abstract class Project with _$Project {
   factory Project({
     /// Path to the project on disk.
     @required String path,
-    @required Map<Language, Metadata> translations,
+    @required List<Metadata> translations,
 
     /// Project name in user's preferred language.
     String defaultName,
   }) = _Project;
 
   @late
-  List<String> get versionsNames => translations.values
+  List<Language> get languages =>
+      translations.map((translation) => translation.language).toList();
+
+  @late
+  List<String> get versionsNames => translations
       .expand((translation) => translation.changelogs.keys)
       .toSet()
       .toList();
@@ -24,6 +28,8 @@ abstract class Project with _$Project {
 @freezed
 abstract class Metadata with _$Metadata {
   const factory Metadata({
+    @required Language language,
+
     /// GP: 50 characters max
     @required String appName,
 

@@ -1,8 +1,7 @@
-import 'package:app_courier/bloc/project_cubit.dart';
+import 'package:app_courier/features/main/bloc/project_cubit.dart';
+import 'package:app_courier/features/main/main_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import 'features/main_screen.dart';
 
 class AppCourier extends StatelessWidget {
   @override

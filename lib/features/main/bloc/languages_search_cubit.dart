@@ -1,9 +1,10 @@
 import 'dart:async';
 
-import 'package:app_courier/bloc/project_cubit.dart';
 import 'package:app_courier/models/models.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+import 'project_cubit.dart';
 
 part 'languages_search_cubit.freezed.dart';
 
@@ -42,8 +43,13 @@ class LanguagesSearchCubit extends Cubit<LanguagesSearchState> {
     emit(LanguagesSearchState(languages: _getLanguages(_projectCubit.state)));
   }
 
-  static List<Language> _getLanguages(Project project) =>
-      project?.translations?.keys?.toList() ?? [];
+  static List<Language> _getLanguages(Project project) {
+    return project != null
+        ? project.translations
+            .map((translation) => translation.language)
+            .toList()
+        : [];
+  }
 
   List<Language> _filterLanguages(List<Language> languages, String query) {
     return languages.where((language) {
