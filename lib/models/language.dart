@@ -54,7 +54,7 @@ abstract class GooglePlayLanguages {
   static const lithuanian = Language('lt', 'Lithuanian');
   static const malay = Language('ms', 'Malay');
   static const norwegian = Language('no', 'Norwegian');
-  static const portuguese_br = Language(' pt-BR', 'Portuguese (Brazil)');
+  static const portuguese_br = Language('pt-BR', 'Portuguese (Brazil)');
   static const portuguese_pr = Language('pt-PT', 'Portuguese (Portugal) ');
   static const romanian = Language('ro', 'Romanian');
   static const russian = Language('ru', 'Russian');
