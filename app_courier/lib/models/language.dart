@@ -75,7 +75,7 @@ abstract class GooglePlayLanguages {
   static const romansh = Language('rm', 'Romansh');
   static const russian = Language('ru-RU', 'Russian');
   static const serbian = Language('sr', 'Serbian');
-  static const sinhala = Language('si-LH', 'Sinhala');
+  static const sinhala = Language('si-LK', 'Sinhala');
   static const slovak = Language('sk', 'Slovak');
   static const slovenian = Language('sl', 'Slovenian');
   static const spanishLatinAmerica =
