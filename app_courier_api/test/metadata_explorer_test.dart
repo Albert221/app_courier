@@ -3,7 +3,7 @@ import 'package:test/test.dart';
 
 void main() {
   group('MetadataExplorer', () {
-    const metadataPath = '/usr/Albert/project/fastlane/metadata';
+    const metadataPath = '/home/Albert/project/fastlane/metadata';
     late MetadataExplorer explorer;
     setUp(() {
       explorer = MetadataExplorer(metadataPath);
