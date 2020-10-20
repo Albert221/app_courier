@@ -21,7 +21,7 @@ jobs:
         dart_version: ['2.10']
 
     container:
-      image:  google/dart:${{ matrix.dart_version }}
+      image: google/dart:${{ matrix.dart_version }}
 
     defaults:
       run:
