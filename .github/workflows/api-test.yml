@@ -45,7 +45,7 @@ jobs:
         run: dart pub get
 
       - name: Run analyzer
-        run: dart analyze
+        run: dart --enable-experiment=non-nullable analyze
 
       - name: Run tests
         run: dart --enable-experiment=non-nullable test
