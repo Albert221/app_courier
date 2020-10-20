@@ -1,0 +1,54 @@
+name: app_courier_api test
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - 'app_courier_api/**'
+  pull_request:
+    branches: [master]
+    paths:
+      - 'app_courier_api/**'
+
+jobs:
+  test:
+    name: Flutter ${{ matrix.channel }}${{ matrix.version }}
+
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+            - channel: stable
+
+    defaults:
+      run:
+        working-directory: app_courier_api
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v1
+        with:
+          channel: ${{ matrix.channel }}
+
+      - name: Dart version
+        run: dart --version
+
+      - name: Cache pub dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.pub-cache
+          key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.lock') }}
+          restore-keys: ${{ runner.os }}-pub-
+
+      - name: Download pub dependencies
+        run: dart pub get
+
+      - name: Run analyzer
+        run: dart analyze
+
+      - name: Run tests
+        run: dart --enable-experiment=non-nullable test
